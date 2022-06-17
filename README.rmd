@@ -3,6 +3,9 @@ output:
   md_document:
     variant: markdown_github
 ---
+```{r include=FALSE}
+knitr::opts_chunk$set(message=FALSE)
+```
 
 
 # Purpose
