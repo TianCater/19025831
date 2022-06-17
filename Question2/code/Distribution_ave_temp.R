@@ -9,7 +9,7 @@ Distribution_ave_temp <- function(df_weather, limits = c(-5,30)) {
 
     df_seasons |>
         ggplot() +
-        geom_density(aes(x = mean_temp, colour = Season)) +
+        geom_density(aes(x = mean_temp, colour = Season), size =1) +
         scale_x_continuous(limits = c(5,30), breaks = seq(5,30,5)) +
         ggtitle ("Temperature distribution by season") +
         xlab("Average temperature ( ºC )") +  ylab ("Probability")
