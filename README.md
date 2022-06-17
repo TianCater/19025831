@@ -24,8 +24,8 @@ gc() # garbage collection
 ```
 
     ##          used (Mb) gc trigger (Mb) max used (Mb)
-    ## Ncells 457040 24.5     983905 52.6   643845 34.4
-    ## Vcells 819715  6.3    8388608 64.0  1649542 12.6
+    ## Ncells 458171 24.5     987137 52.8   643845 34.4
+    ## Vcells 822341  6.3    8388608 64.0  1649542 12.6
 
 ``` r
 #Loading packages
