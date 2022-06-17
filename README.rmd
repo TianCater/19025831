@@ -73,6 +73,8 @@ plot2
 ```
 
 
+
+
 # Question 2 solutions
 
 ```{r}
