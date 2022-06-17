@@ -1,0 +1,152 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+# Purpose
+
+### Getting Started
+
+The following code is to create a structured workflow directory as required.
+
+```{r, eval=FALSE}
+
+CHOSEN_LOCATION <- "C:/Users/tianc/Rproj/"
+fmxdat::make_project(FilePath = glue::glue("{CHOSEN_LOCATION}"), 
+                     ProjNam = "19025831")
+
+Texevier::create_template(directory = glue::glue("C:/Users/tianc/Rproj/19025831/"), template_name = "Question1", open_project = F)
+Texevier::create_template(directory = glue::glue("C:/Users/tianc/Rproj/19025831/"), template_name = "Question2", open_project = F)
+Texevier::create_template(directory = glue::glue("C:/Users/tianc/Rproj/19025831/"), template_name = "Question3", open_project = F)
+
+```
+
+# Question 1 Solution
+
+
+## Code used for Figures and Tables
+
+```{r}
+
+gc() # garbage collection 
+
+#Loading packages
+
+library(pacman)
+p_load(tidyverse, lubridate)
+
+# Here I source in all my functions:
+
+list.files('Question1/code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+## Data Import
+
+df_owid <- read_csv(glue::glue("Question1/data/Covid/owid-covid-data.csv"))
+Continent_list <- c("Europe","North America","South America", "Asia","Africa")
+df_owid_adj <- df_owid |> filter(continent %in% Continent_list)
+
+df_death_by_cause <- read_csv(glue::glue("Question1/data/Covid/Deaths_by_cause.csv")) #see if there is a cleaner way
+df_description <- read_csv("Question1/data/Covid/covid_data_description.csv")
+
+```
+
+
+
+
+
+
+```{r}
+plot1 <- cases_per_region(df_owid_adj,xaxis_size = 5, xaxis_rows = 3)
+
+plot1
+
+```
+
+
+```{r}
+
+plot2 <- deaths_per_region(df_owid_adj,xaxis_size = 5, xaxis_rows = 3)
+
+plot2
+
+```
+
+
+# Question 2 solutions
+
+```{r}
+
+#Loading packages
+
+library(pacman)
+p_load(tidyverse, lubridate)
+
+# Here I source in all my functions:
+
+list.files('Question1/code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+list.files('Question2/code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+# Data
+
+df_weather <- read_csv("Question2/data/London/london_weather.csv", col_types = cols(date = col_date(format = "%Y%m%d")))
+
+
+
+
+```
+
+```{r}
+g1 <- average_temp_plot(df_weather)
+
+g1
+
+    
+```
+
+
+```{r}
+
+g2 <- Distribution_ave_temp(df_weather, limits = c(-5,30))
+
+g2
+
+
+
+```
+
+
+```{r}
+
+g3 <- violin_plot(df_weather)
+
+g3
+
+```
+
+
+
+
+# Question 3 solutions
+
+```{r}
+#Loading packages
+
+library(pacman)
+p_load(tidyverse, lubridate)
+
+# Here I source in all my functions:
+
+list.files('Question1/code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+list.files('Question3/code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
+
+
+```
+
+
+```{r}
+
+```
+
+
+
