@@ -31,7 +31,7 @@ Texevier::create_template(directory = glue::glue("C:/Users/tianc/Rproj/19025831/
 
 ## Code used for Figures and Tables
 
-```{r}
+```{r, message=FALSE}
 
 gc() # garbage collection 
 
